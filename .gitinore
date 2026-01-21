@@ -1,0 +1,11 @@
+# Build
+/build/
+/target/
+
+# Eclipse
+.settings/
+.classpath
+.project
+
+# Compiled
+*.class
