@@ -1,0 +1,201 @@
+@charset "UTF-8";
+
+/* --- 1. BẢNG MÀU CHUẨN --- */
+:root {
+    --main-green: #20B970;       /* Xanh Mint chủ đạo */
+    --hover-green: #189659;      /* Xanh đậm khi hover */
+    --accent-orange: #FF7B38;    /* Cam nổi bật */
+    --hover-orange: #e5621f;     /* Cam đậm khi hover */
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --bg-light: #f4f7f6;
+}
+
+body {
+    background-color: var(--bg-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    min-height: 100vh;
+    
+    /* QUAN TRỌNG: Thêm khoảng trống ở dưới cùng body 
+       để nội dung không bị Footer che mất khi cuộn xuống hết cỡ */
+    padding-bottom: 80px; 
+}
+
+a { text-decoration: none; }
+
+/* --- 2. HEADER (NAVBAR) --- */
+.navbar-custom {
+    background-color: var(--main-green) !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--text-light) !important;
+    font-size: 1.2rem;
+}
+
+.user-info {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* --- 3. SIDEBAR (MENU TRÁI) --- */
+.sidebar-card {
+    background: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    overflow-y: auto; /* Cho phép cuộn nếu menu quá dài */
+    
+    /* CÔNG THỨC QUAN TRỌNG NHẤT:
+       100vh (Chiều cao màn hình) 
+       - 70px (Header) 
+       - 80px (Footer) 
+       - 40px (Khoảng cách margin) 
+    */
+    min-height: calc(100vh - 190px); 
+    height: 100%; 
+}
+
+	/* Tùy chỉnh thanh cuộn của Menu cho đẹp (mảnh và xanh) */
+.sidebar-card::-webkit-scrollbar {
+    width: 5px;
+}
+.sidebar-card::-webkit-scrollbar-thumb {
+    background: var(--main-green);
+    border-radius: 10px;
+}
+.sidebar-card::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.list-group-item {
+    border: none;
+    border-left: 5px solid transparent;
+    padding: 12px 20px;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.2s;
+}
+
+.list-group-item:hover {
+    background-color: #e8f5e9; /* Nền xanh rất nhạt */
+    color: var(--main-green);
+    border-left-color: var(--main-green);
+}
+
+.list-group-item.active {
+    background-color: var(--main-green) !important;
+    border-color: var(--main-green) !important;
+    color: var(--text-light) !important;
+    border-left-color: var(--accent-orange); /* Điểm nhấn cam */
+}
+
+/* --- 4. CÁC Ô THỐNG KÊ (CARDS) --- */
+/* Ghi đè màu nền Bootstrap để dùng màu của bạn */
+.bg-primary {
+    background-color: var(--main-green) !important;
+    color: var(--text-light) !important;
+}
+
+.bg-warning {
+    background-color: var(--accent-orange) !important;
+    color: var(--text-light) !important; /* Chữ trắng trên nền cam */
+}
+
+.bg-success {
+    background-color: #2ecc71 !important; /* Một màu xanh khác cho phong phú */
+    color: var(--text-light) !important;
+}
+
+.card-stat {
+    border: none;
+    border-radius: 10px;
+    color: white;
+    transition: transform 0.2s;
+}
+
+.card-stat:hover {
+    transform: translateY(-5px); /* Hiệu ứng nổi lên */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.card-stat .card-body {
+    padding: 20px;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* --- 5. BẢNG (TABLE) --- */
+.table-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Đầu bảng màu Xanh, Chữ Trắng */
+.table thead th {
+    background-color: var(--main-green) !important;
+    color: var(--text-light) !important;
+    border-bottom: none;
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f8e9; /* Hover dòng màu xanh nhạt */
+}
+
+/* Chỉnh màu tiền tệ */
+.text-price {
+    color: var(--accent-orange);
+    font-weight: bold;
+}
+
+/* --- 6. BUTTONS --- */
+.btn-primary, .btn-success {
+    background-color: var(--main-green);
+    border-color: var(--main-green);
+}
+
+.btn-primary:hover, .btn-success:hover {
+    background-color: var(--hover-green);
+    border-color: var(--hover-green);
+}
+
+.btn-warning {
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange);
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: var(--hover-orange);
+    border-color: var(--hover-orange);
+    color: white;
+}
+
+/* --- 7. HEADER CỦA CÁC KHUNG (Card Header) --- */
+.section-header {
+    border-left: 5px solid var(--main-green);
+    padding-left: 10px;
+    margin-bottom: 20px;
+    color: var(--main-green);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
